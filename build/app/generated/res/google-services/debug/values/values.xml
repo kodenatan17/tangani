@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">685704792433-5pmmpn4r04rhvag7k6t0u4ogv90rfsvh.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">685704792433</string>
+    <string name="google_api_key" translatable="false">AIzaSyDRn43PQgPbcsdAA3RG9uZ6D2PG15ZuUF4</string>
+    <string name="google_app_id" translatable="false">1:685704792433:android:5d6b20bd5444f791cd4ed0</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDRn43PQgPbcsdAA3RG9uZ6D2PG15ZuUF4</string>
+    <string name="google_storage_bucket" translatable="false">tangani-457b8.appspot.com</string>
+    <string name="project_id" translatable="false">tangani-457b8</string>
+</resources>

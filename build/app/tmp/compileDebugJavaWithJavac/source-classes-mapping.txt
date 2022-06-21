@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/kodenatan/tangani/tangani/BuildConfig.java
+ com.kodenatan.tangani.tangani.BuildConfig

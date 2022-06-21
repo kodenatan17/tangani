@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "685704792433",
+    "project_id": "tangani-457b8",
+    "storage_bucket": "tangani-457b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685704792433:android:5d6b20bd5444f791cd4ed0",
+        "android_client_info": {
+          "package_name": "com.kodenatan.tangani.tangani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685704792433-1gjg0doemr0cr1gvjpfdka1fnp6jnh2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kodenatan.tangani.tangani",
+            "certificate_hash": "743c644875c6bc9427169ddb29c3b059a32f6e51"
+          }
+        },
+        {
+          "client_id": "685704792433-5pmmpn4r04rhvag7k6t0u4ogv90rfsvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRn43PQgPbcsdAA3RG9uZ6D2PG15ZuUF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685704792433-5pmmpn4r04rhvag7k6t0u4ogv90rfsvh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "685704792433-ido33dnphf3o50rti31e5i41tccfnvel.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kodenatan.tangani.tangani"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

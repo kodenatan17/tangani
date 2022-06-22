@@ -46,6 +46,14 @@ characters
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.1/
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.1/lib/
+charts_common
+2.12
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.12.0/
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.12.0/lib/
+charts_flutter
+2.12
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.12.0/
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.12.0/lib/
 clock
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1/
@@ -78,6 +86,10 @@ cupertino_icons
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
+data_table_2
+2.17
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/data_table_2-2.3.2/
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/data_table_2-2.3.2/lib/
 dots_indicator
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/dots_indicator-2.1.0/
@@ -262,6 +274,10 @@ lints
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1/
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1/lib/
+logging
+2.12
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2/
+file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2/lib/
 lottie
 2.12
 file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lottie-1.3.0/

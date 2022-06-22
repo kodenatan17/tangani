@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tangani/app/controllers/auth_controller.dart';
 import 'package:tangani/app/utils/splash_screen.dart';
 import 'package:tangani/firebase_options.dart';
@@ -20,8 +21,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Tangani App",
-      initialRoute: Routes.REPORT_MAIN,
+      initialRoute: Routes.ADMIN,
       getPages: AppPages.routes,
+      theme: ThemeData(
+        textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
+        pageTransitionsTheme: PageTransitionsTheme(builders: {
+          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        }),
+      ),
     );
 
     // return FutureBuilder(

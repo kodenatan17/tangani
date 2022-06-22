@@ -1,23 +1,51 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tangani/app/modules/admin/constants/styles.dart';
+import 'package:tangani/app/modules/admin/routing/routes.dart';
 
 class AdminController extends GetxController {
-  //TODO: Implement AdminController
+  static AdminController instance = Get.find();
+  var activeItem = DashboardPageRoutes.obs;
+  var hoverItem = "".obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  changeActiveItemTo(String itemName) {
+    activeItem.value = itemName;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  onHover(String itemName) {
+    if (isActive(itemName)) hoverItem.value = itemName;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  isActive(String itemName) => activeItem.value == itemName;
+
+  isHovering(String itemName) => hoverItem.value == itemName;
+
+  Widget returnIconFor(String itemName) {
+    switch (itemName) {
+      case DashboardPageRoutes:
+        return _customIcon(Icons.trending_up, itemName);
+      case LaporanPageRoutes:
+        return _customIcon(Icons.camera_alt_outlined, itemName);
+      case AccountPageRoutes:
+        return _customIcon(Icons.manage_accounts, itemName);
+      case AuthenticationPageRoutes:
+        return _customIcon(Icons.exit_to_app, itemName);
+      default:
+        return _customIcon(Icons.exit_to_app, itemName);
+    }
   }
 
-  void increment() => count.value++;
+  Widget _customIcon(IconData icon, String itemName) {
+    if (isActive(itemName))
+      return Icon(
+        icon,
+        size: 22,
+        color: darker,
+      );
+
+    return Icon(
+      icon,
+      color: isHovering(itemName) ? darker : lightGrey,
+    );
+  }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:tangani/app/modules/admin/helpers/responsiveness.dart';
+import 'package:tangani/app/modules/admin/widgets/side_menu.dart';
 import 'package:tangani/app/modules/admin/widgets/small_screen.dart';
 import 'package:tangani/app/modules/admin/widgets/top_nav.dart';
 
@@ -14,8 +15,11 @@ class AdminView extends GetView<AdminController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: topNavigationBar(context, scaffoldKey),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: SideMenu(),
+      ),
       body: ResponsiveWidget(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),

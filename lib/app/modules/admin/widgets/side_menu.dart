@@ -54,9 +54,6 @@ class SideMenu extends StatelessWidget {
                 ),
               ],
             ),
-          SizedBox(
-            height: 40,
-          ),
           Divider(
             color: lightGrey.withOpacity(.1),
           ),
@@ -75,6 +72,7 @@ class SideMenu extends StatelessWidget {
                           adminController.changeActiveItemTo(itemName);
                           if (ResponsiveWidget.isSmallScreen(context))
                             Get.back();
+                          navigationController.navigateTo(itemName);
                         }
                       },
                     ))

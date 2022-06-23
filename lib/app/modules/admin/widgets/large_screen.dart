@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tangani/app/modules/admin/helpers/local_navigator.dart';
 import 'package:tangani/app/modules/admin/widgets/side_menu.dart';
 
 class LargeScreen extends StatelessWidget {
@@ -13,10 +14,8 @@ class LargeScreen extends StatelessWidget {
         ),
         Expanded(
           flex: 5,
-          child: Container(
-            color: Colors.blue,
-          ),
-        )
+          child: localNavigator()
+        ),
       ],
     );
   }

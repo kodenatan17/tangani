@@ -26,7 +26,7 @@ class AdminController extends GetxController {
         return _customIcon(Icons.trending_up, itemName);
       case LaporanPageRoutes:
         return _customIcon(Icons.camera_alt_outlined, itemName);
-      case AccountPageRoutes:
+      case AccountsPageRoutes:
         return _customIcon(Icons.manage_accounts, itemName);
       case AuthenticationPageRoutes:
         return _customIcon(Icons.exit_to_app, itemName);

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tangani/app/controllers/auth_controller.dart';
+import 'package:tangani/app/modules/admin/constants/styles.dart';
 import 'package:tangani/app/modules/admin/controllers/admin_controller.dart';
 import 'package:tangani/app/modules/admin/controllers/navigation_controller.dart';
 import 'package:tangani/app/utils/splash_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.ADMIN,
       getPages: AppPages.routes,
       theme: ThemeData(
+        scaffoldBackgroundColor: light,
         textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
         pageTransitionsTheme: PageTransitionsTheme(builders: {
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),

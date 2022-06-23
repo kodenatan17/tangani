@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tangani/app/modules/admin/helpers/local_navigator.dart';
 
@@ -7,6 +6,11 @@ class SmallScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return localNavigator();
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: localNavigator(),
+    );
   }
 }

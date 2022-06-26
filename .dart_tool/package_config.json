@@ -206,6 +206,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_clean_calendar",
+      "rootUri": "file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_clean_calendar-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_facebook_auth",
       "rootUri": "file:///home/kodenatan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth-4.3.4+2",
       "packageUri": "lib/",
@@ -692,7 +698,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-06-23T17:20:32.275478Z",
+  "generated": "2022-06-26T09:18:33.279420Z",
   "generator": "pub",
   "generatorVersion": "2.18.0-190.0.dev"
 }

@@ -5,6 +5,7 @@ import 'package:tangani/app/modules/admin/widgets/custom_text.dart';
 
 import '../../constants/controllers.dart';
 import '../../helpers/responsiveness.dart';
+import '../dashboard/widgets/laporan_table.dart';
 
 class LaporanPage extends StatelessWidget {
   const LaporanPage({Key? key}) : super(key: key);
@@ -27,6 +28,13 @@ class LaporanPage extends StatelessWidget {
                   color: darker,
                 ),
               ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView(
+            children: [
+              LaporanTable(),
             ],
           ),
         ),

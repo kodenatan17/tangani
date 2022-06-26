@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tangani/app/modules/admin/constants/styles.dart';
+import 'package:tangani/app/modules/admin/pages/accounts/widgets/accounts_table.dart';
 import 'package:tangani/app/modules/admin/widgets/custom_text.dart';
 
 import '../../constants/controllers.dart';
@@ -30,6 +31,13 @@ class AccountsPage extends StatelessWidget {
             ],
           ),
         ),
+        Expanded(
+          child: ListView(
+            children: [
+              AccountsTable(),
+            ],
+          ),
+        )
       ],
     );
   }

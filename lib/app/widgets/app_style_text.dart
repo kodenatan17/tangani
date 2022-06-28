@@ -96,12 +96,12 @@ class AppStyleText {
   static const TextStyle NOTED_TEXT = TextStyle(
     color: Colors.lightGreen,
     fontWeight: FontWeight.bold,
-    fontSize: 14,
+    fontSize: 13,
   );
   static const TextStyle MODAL_TEXT = TextStyle(
     color: kTextPrimaryColor,
     fontWeight: FontWeight.normal,
-    fontSize: 20,
+    fontSize: 16,
   );
   static const TextStyle SUBMODAL_TEXT = TextStyle(
     color: kTextPrimaryColor,

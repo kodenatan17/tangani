@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Tangani App",
-      initialRoute: Routes.ADMIN,
+      initialRoute: Routes.REPORT_MAIN,
       getPages: AppPages.routes,
       theme: ThemeData(
         scaffoldBackgroundColor: light,
@@ -47,6 +47,14 @@ class MyApp extends StatelessWidget {
     //               authC.isAuth.isTrue ? AppPages.INITIAL : Routes.LOGIN,
     //           // initialRoute: AppPages.INITIAL,
     //           getPages: AppPages.routes,
+    //           theme: ThemeData(
+    //             scaffoldBackgroundColor: light,
+    //             textTheme:
+    //                 GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
+    //             pageTransitionsTheme: PageTransitionsTheme(builders: {
+    //               TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+    //             }),
+    //           ),
     //         ),
     //       );
     //     }

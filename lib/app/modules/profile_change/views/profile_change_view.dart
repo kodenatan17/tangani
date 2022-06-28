@@ -106,56 +106,30 @@ class ProfileChangeView extends GetView<ProfileChangeController> {
                   () => Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      InkWell(
-                        onTap: () {
-                          dialogDisplayName(context);
-                        },
-                        child: TextFormField(
-                          enabled: false,
-                          controller: controller.displayNameC,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.circular(KDefaultCircular),
-                              ),
-                              hintText:
-                                  "${authC.usersModel.value.displayName}"),
-                        ),
+                      TextFormField(
+                        enabled: false,
+                        controller: controller.displayNameC,
+                        decoration: InputDecoration(labelText: "Nama Lengkap"),
                       ),
-                      InkWell(
-                        onTap: () {
-                          dialogUserName(context);
-                        },
-                        child: TextFormField(
-                          enabled: false,
-                          controller: controller.usernameC,
-                          decoration: InputDecoration(labelText: "Username"),
-                        ),
+                      TextFormField(
+                        enabled: false,
+                        controller: controller.usernameC,
+                        decoration: InputDecoration(labelText: "Username"),
                       ),
                       TextFormField(
                         enabled: false,
                         controller: controller.emailC,
                         decoration: InputDecoration(labelText: "Email"),
                       ),
-                      InkWell(
-                        onTap: () {
-                          dialogPhone(context);
-                        },
-                        child: TextFormField(
-                          enabled: false,
-                          controller: controller.phoneC,
-                          decoration: InputDecoration(labelText: "No. Telp"),
-                        ),
+                      TextFormField(
+                        enabled: false,
+                        controller: controller.phoneC,
+                        decoration: InputDecoration(labelText: "No. Telp"),
                       ),
-                      InkWell(
-                        onTap: () {
-                          dialogPassword(context);
-                        },
-                        child: TextFormField(
-                          enabled: false,
-                          controller: controller.passwordC,
-                          decoration: InputDecoration(labelText: "Password"),
-                        ),
+                      TextFormField(
+                        enabled: false,
+                        controller: controller.passwordC,
+                        decoration: InputDecoration(labelText: "Password"),
                       ),
                       TextFormField(
                         enabled: false,
@@ -280,94 +254,4 @@ class ProfileChangeView extends GetView<ProfileChangeController> {
       ),
     );
   }
-
-  Future dialogDisplayName(BuildContext context) => showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Nama Lengkap'),
-          content: Obx(
-            () => TextField(
-              autofocus: true,
-              controller: textchangeDisplayName,
-              decoration: InputDecoration(
-                  hintText: '${authC.usersModel.value.displayName}'),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .pop(textchangeDisplayName = controller.displayNameC);
-              },
-              child: Text('Submit'),
-            ),
-          ],
-        ),
-      );
-
-  Future dialogUserName(BuildContext context) => showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Nama Lengkap'),
-          content: Obx(
-            () => TextField(
-              autofocus: true,
-              decoration: InputDecoration(
-                  hintText: '${authC.usersModel.value.username}'),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Submit'),
-            ),
-          ],
-        ),
-      );
-
-  Future dialogPhone(BuildContext context) => showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Nama Lengkap'),
-          content: Obx(
-            () => TextField(
-              autofocus: true,
-              decoration:
-                  InputDecoration(hintText: '${authC.usersModel.value.phone}'),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Submit'),
-            ),
-          ],
-        ),
-      );
-
-  Future dialogPassword(BuildContext context) => showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Nama Lengkap'),
-          content: Obx(
-            () => TextField(
-              autofocus: true,
-              decoration: InputDecoration(
-                  hintText: '${authC.usersModel.value.password}'),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Submit'),
-            ),
-          ],
-        ),
-      );
 }

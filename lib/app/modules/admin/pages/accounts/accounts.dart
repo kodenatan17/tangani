@@ -37,7 +37,7 @@ class AccountsPage extends StatelessWidget {
               AccountsTable(),
             ],
           ),
-        )
+        ),
       ],
     );
   }

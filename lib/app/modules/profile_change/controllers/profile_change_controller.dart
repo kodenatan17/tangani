@@ -16,7 +16,7 @@ class ProfileChangeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    displayNameC = TextEditingController();
+    displayNameC = TextEditingController(text: "${authC.usersModel.value.displayName}");
     usernameC = TextEditingController(text: "${authC.usersModel.value.username}");
     emailC = TextEditingController(text: "${authC.usersModel.value.email}");
     phoneC = TextEditingController(text: "${authC.usersModel.value.phone}");

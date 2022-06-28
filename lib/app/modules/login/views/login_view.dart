@@ -31,7 +31,7 @@ class LoginView extends GetView<LoginController> {
             Image.asset(
               "assets/images/logo-transparent.png",
               width: 200,
-              height: 150,
+              height: 120,
               fit: BoxFit.cover,
             ),
             Container(

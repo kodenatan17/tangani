@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:tangani/app/widgets/app_style_text.dart';
 import 'package:tangani/app/widgets/constants.dart';
 import 'package:tangani/app/widgets/spacer_style.dart';
@@ -12,13 +14,15 @@ import 'package:tangani/app/widgets/spacer_style.dart';
 import '../controllers/report_main_controller.dart';
 
 class ReportMainView extends GetView<ReportMainController> {
-  var txt = TextEditingController();
-
-  List<GlobalKey<FormState>> formKeys =[
+  List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
   ];
+
+  var locationLaporanC = TextEditingController();
+  var jenisLaporanC = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +44,9 @@ class ReportMainView extends GetView<ReportMainController> {
           steps: buildStep(context),
           currentStep: controller.currentStep.value,
           onStepContinue: () {
-            if(!formKeys[controller.currentStep.value].currentState!.validate()){
+            if (!formKeys[controller.currentStep.value]
+                .currentState!
+                .validate()) {
               return;
             }
 
@@ -69,7 +75,7 @@ class ReportMainView extends GetView<ReportMainController> {
                       ),
                       onPressed: details.onStepContinue,
                     ),
-                  ), 
+                  ),
                   SizedBox(width: kDefaultPadding * 2),
                   if (controller.currentStep.value != 0)
                     Expanded(
@@ -95,7 +101,7 @@ class ReportMainView extends GetView<ReportMainController> {
         content: Form(
           key: formKeys[0],
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.65,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -116,7 +122,7 @@ class ReportMainView extends GetView<ReportMainController> {
                   height: kDefaultPadding,
                 ),
                 Container(
-                  height: 300,
+                  height: 350,
                   width: MediaQuery.of(context).size.width,
                   child: Obx(
                     () => ClipRRect(
@@ -196,7 +202,7 @@ class ReportMainView extends GetView<ReportMainController> {
         content: Form(
           key: formKeys[1],
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.65,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -215,7 +221,7 @@ class ReportMainView extends GetView<ReportMainController> {
                 ),
                 TextFormField(
                   onChanged: (value) => controller.filterKategori(value),
-                  controller: txt,
+                  controller: jenisLaporanC,
                   decoration: const InputDecoration(
                     labelText: "Search",
                     suffixIcon: Icon(Icons.search),
@@ -274,7 +280,8 @@ class ReportMainView extends GetView<ReportMainController> {
                                             ),
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Image.asset(
                                                   '${controller.allKategori[index]['icon']}',
@@ -296,9 +303,8 @@ class ReportMainView extends GetView<ReportMainController> {
                                                           .MODALTITLE_TEXT,
                                                     ),
                                                     Text(
-                                                      controller
-                                                              .allKategori[index]
-                                                          ['name'],
+                                                      controller.allKategori[
+                                                          index]['name'],
                                                       style: AppStyleText
                                                           .MODALSUBTITLE_TEXT,
                                                     ),
@@ -309,9 +315,9 @@ class ReportMainView extends GetView<ReportMainController> {
                                                 ),
                                                 ElevatedButton(
                                                   onPressed: () {
-                                                    Navigator.of(context).pop(txt
-                                                            .text =
-                                                        '${controller.allKategori[index]['name']}');
+                                                    Navigator.of(context).pop(
+                                                        jenisLaporanC.text =
+                                                            '${controller.allKategori[index]['name']}');
                                                   },
                                                   child: const Text('Pilih'),
                                                 ),
@@ -351,7 +357,7 @@ class ReportMainView extends GetView<ReportMainController> {
         content: Form(
           key: formKeys[2],
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.65,
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Column(
@@ -362,7 +368,181 @@ class ReportMainView extends GetView<ReportMainController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Ceritikan Laporan Kamu',
+                        'Foto Laporanmu',
+                        style: AppStyleText.CARDTITLE_TEXT,
+                      ),
+                      Text(
+                        ' *',
+                        style: AppStyleText.NOTED_TEXT,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding,
+                  ),
+                  Container(
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                        KDefaultCircular,
+                      ),
+                      child: controller.selectedImagePath.value == ''
+                          ? Image.asset("assets/images/default_image.png")
+                          : Image.file(
+                              File(controller.selectedImagePath.value),
+                              fit: BoxFit.cover,
+                              frameBuilder: (BuildContext context, Widget child,
+                                  int? frame, bool wasSynchronouslyLoaded) {
+                                if (wasSynchronouslyLoaded) {
+                                  return child;
+                                }
+                                return AnimatedOpacity(
+                                  opacity: frame == null ? 0 : 1,
+                                  duration: const Duration(seconds: 1),
+                                  curve: Curves.easeOut,
+                                  child: child,
+                                );
+                              },
+                            ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Jenis Laporanmu',
+                        style: AppStyleText.CARDTITLE_TEXT,
+                      ),
+                      Text(
+                        ' *',
+                        style: AppStyleText.NOTED_TEXT,
+                      ),
+                    ],
+                  ),
+                  TextField(
+                    enabled: false,
+                    controller: jenisLaporanC,
+                    decoration: InputDecoration(labelText: "Jenis Laporan"),
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Lokasi Laporanmu',
+                        style: AppStyleText.CARDTITLE_TEXT,
+                      ),
+                      Text(
+                        ' *',
+                        style: AppStyleText.NOTED_TEXT,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Obx(
+                          () => DropdownButton2<String>(
+                            onChanged: (newValue) {
+                              controller.setSelectedValueRW(newValue);
+                            },
+                            value: controller.selectedValueRW.value == ""
+                                ? null
+                                : controller.selectedValueRW.value,
+                            items: controller.listRW.map((selectedRW) {
+                              return DropdownMenuItem(
+                                child: new Text(selectedRW),
+                                value: selectedRW,
+                              );
+                            }).toList(),
+                            isExpanded: true,
+                            hint: Row(
+                              children: const [
+                                Icon(
+                                  Icons.list,
+                                  size: 12,
+                                  color: kBgPrimaryColor,
+                                ),
+                                SizedBox(
+                                  width: 4,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "Pilih RW",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: kBgPrimaryColor,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: kDefaultPadding,
+                      ),
+                      Expanded(
+                        child: Obx(
+                          () => DropdownButton2<String>(
+                            onChanged: (newValue) {
+                              controller.setSelectedValueRT(newValue);
+                            },
+                            value: controller.SelectedValueRT.value == ""
+                                ? null
+                                : controller.SelectedValueRT.value,
+                            items: controller.listRT.map((selectedRT) {
+                              return DropdownMenuItem(
+                                child: new Text(selectedRT),
+                                value: selectedRT,
+                              );
+                            }).toList(),
+                            isExpanded: true,
+                            hint: Row(
+                              children: const [
+                                Icon(
+                                  Icons.list,
+                                  size: 12,
+                                  color: kBgPrimaryColor,
+                                ),
+                                SizedBox(
+                                  width: 4,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "Pilih RW",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: kBgPrimaryColor,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Ceritakan Laporan Kamu',
                         style: AppStyleText.CARDTITLE_TEXT,
                       ),
                       Text(
@@ -402,8 +582,8 @@ class ReportMainView extends GetView<ReportMainController> {
                     autofocus: false,
                     minLines: 5,
                     maxLines: 5,
-                    validator: (value){
-                      if(value == null || value.isEmpty){
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return 'input tidak boleh kosong';
                       }
                       return null;
@@ -427,7 +607,7 @@ class ReportMainView extends GetView<ReportMainController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Ceritikan Solusi Kamu',
+                        'Ceritakan Solusi Kamu',
                         style: AppStyleText.CARDTITLE_TEXT,
                       ),
                       Text(
@@ -463,10 +643,16 @@ class ReportMainView extends GetView<ReportMainController> {
                   SizedBox(
                     height: kDefaultPadding,
                   ),
-                  TextField(
+                  TextFormField(
                     autofocus: false,
                     minLines: 5,
                     maxLines: 5,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'input tidak boleh kosong';
+                      }
+                      return null;
+                    },
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
                       labelText: "Solusi",

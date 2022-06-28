@@ -4,6 +4,12 @@ import '../modules/activity/bindings/activity_binding.dart';
 import '../modules/activity/views/activity_view.dart';
 import '../modules/admin/bindings/admin_binding.dart';
 import '../modules/admin/views/admin_view.dart';
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
+import '../modules/chat_room/bindings/chat_room_binding.dart';
+import '../modules/chat_room/views/chat_room_view.dart';
+import '../modules/chat_search/bindings/chat_search_binding.dart';
+import '../modules/chat_search/views/chat_search_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
@@ -134,6 +140,21 @@ class AppPages {
       name: _Paths.ADMIN,
       page: () => AdminView(),
       binding: AdminBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => ChatView(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT_ROOM,
+      page: () => const ChatRoomView(),
+      binding: ChatRoomBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT_SEARCH,
+      page: () => const ChatSearchView(),
+      binding: ChatSearchBinding(),
     ),
   ];
 }

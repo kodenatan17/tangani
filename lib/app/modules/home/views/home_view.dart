@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:tangani/app/modules/activity/views/activity_view.dart';
+import 'package:tangani/app/modules/chat/views/chat_view.dart';
 import 'package:tangani/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:tangani/app/modules/notification/views/notification_view.dart';
 import 'package:tangani/app/modules/profile/views/profile_view.dart';
@@ -21,7 +22,7 @@ class HomeView extends StatelessWidget {
             index: controller.tabIndex,
             children: [
               DashboardView(),
-              ActivityView(),
+              ChatView(),
               ReportView(),
               NotificationView(),
               ProfileView(),
@@ -40,11 +41,11 @@ class HomeView extends StatelessWidget {
             _bottomNavigationBarItem(icon: CupertinoIcons.home, label: 'Home'),
             _bottomNavigationBarItem(
                 icon: CupertinoIcons.rectangle_on_rectangle,
-                label: 'Notification'),
+                label: 'Chats'),
             _bottomNavigationBarItem(
                 icon: CupertinoIcons.camera_circle, label: 'Laporan'),
             _bottomNavigationBarItem(
-                icon: CupertinoIcons.bell, label: 'Activity'),
+                icon: CupertinoIcons.bell, label: 'Notification'),
             _bottomNavigationBarItem(
                 icon: CupertinoIcons.profile_circled, label: 'Profile'),
           ],

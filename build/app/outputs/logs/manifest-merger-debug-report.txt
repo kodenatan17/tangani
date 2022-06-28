@@ -73,8 +73,10 @@ MERGED from [:flutter_plugin_android_lifecycle] /home/kodenatan/tangani/build/fl
 MERGED from [:path_provider_android] /home/kodenatan/tangani/build/path_provider_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:google_sign_in_android] /home/kodenatan/tangani/build/google_sign_in_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_facebook_auth] /home/kodenatan/tangani/build/flutter_facebook_auth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences_android] /home/kodenatan/tangani/build/shared_preferences_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler_android] /home/kodenatan/tangani/build/permission_handler_android/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:geocoding] /home/kodenatan/tangani/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:emoji_picker_flutter] /home/kodenatan/tangani/build/emoji_picker_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a3b86b42fafb2019c6d99a912992ce19/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/cea45e25bbe77c9713c39e234ccfd7bd/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.multidex:multidex:2.0.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/02d04e6dfdbeb319e115f5728d226784/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -242,10 +244,14 @@ MERGED from [:google_sign_in_android] /home/kodenatan/tangani/build/google_sign_
 MERGED from [:google_sign_in_android] /home/kodenatan/tangani/build/google_sign_in_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_auth] /home/kodenatan/tangani/build/flutter_facebook_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_auth] /home/kodenatan/tangani/build/flutter_facebook_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /home/kodenatan/tangani/build/shared_preferences_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /home/kodenatan/tangani/build/shared_preferences_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler_android] /home/kodenatan/tangani/build/permission_handler_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler_android] /home/kodenatan/tangani/build/permission_handler_android/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:geocoding] /home/kodenatan/tangani/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:geocoding] /home/kodenatan/tangani/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:emoji_picker_flutter] /home/kodenatan/tangani/build/emoji_picker_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:emoji_picker_flutter] /home/kodenatan/tangani/build/emoji_picker_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window-java:1.0.0-beta04] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a3b86b42fafb2019c6d99a912992ce19/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a3b86b42fafb2019c6d99a912992ce19/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/cea45e25bbe77c9713c39e234ccfd7bd/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41

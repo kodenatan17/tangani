@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Tangani App",
-      initialRoute: Routes.REPORT_MAIN,
+      initialRoute: Routes.CHAT,
       getPages: AppPages.routes,
       theme: ThemeData(
         scaffoldBackgroundColor: light,

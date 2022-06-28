@@ -126,4 +126,5 @@ class AppStyleText {
     fontWeight: FontWeight.normal,
     fontSize: 14,
   );
+
 }

@@ -15,7 +15,8 @@ class PresenceLabelt extends StatefulWidget {
 }
 
 class _PresenceLabeltState extends State<PresenceLabelt> {
-  String formattedDate = DateFormat('EEEE, dd MMMM yyyy').format(DateTime.now());
+  String formattedDate =
+      DateFormat('EEEE, dd MMMM yyyy').format(DateTime.now());
   String formattedTime = DateFormat('kk:mm:ss').format(DateTime.now());
   String hour = DateFormat('a').format(DateTime.now());
   late Timer _timer;
@@ -28,10 +29,17 @@ class _PresenceLabeltState extends State<PresenceLabelt> {
   }
 
   void _update() {
-    setState(() {
-      formattedTime = DateFormat('kk:mm:ss').format(DateTime.now());
-      hour = DateFormat('a').format(DateTime.now());
-    });
+    if (this.mounted) {
+      setState(() {
+        formattedTime = DateFormat('kk:mm:ss').format(DateTime.now());
+        hour = DateFormat('a').format(DateTime.now());
+      });
+    }
+  }
+
+  void onCLose() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) => _update());
+    _timer.cancel();
   }
 
   @override

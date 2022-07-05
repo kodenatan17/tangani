@@ -148,12 +148,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CHAT_ROOM,
-      page: () => const ChatRoomView(),
+      page: () => ChatRoomView(),
       binding: ChatRoomBinding(),
     ),
     GetPage(
       name: _Paths.CHAT_SEARCH,
-      page: () => const ChatSearchView(),
+      page: () => ChatSearchView(),
       binding: ChatSearchBinding(),
     ),
   ];

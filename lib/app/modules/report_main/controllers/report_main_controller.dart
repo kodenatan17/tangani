@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -21,7 +22,8 @@ class ReportMainController extends GetxController {
         imageQuality: 100,
         maxWidth: 750,
         maxHeight: 750,
-        preferredCameraDevice: CameraDevice.rear);
+        preferredCameraDevice: CameraDevice.rear,
+        );
     if (pickedFile != null) {
       selectedImagePath.value = pickedFile.path;
     } else {
@@ -157,4 +159,5 @@ class ReportMainController extends GetxController {
   void setSelectedValueRW(String? value){
     selectedValueRW.value = value!;
   }
+
 }

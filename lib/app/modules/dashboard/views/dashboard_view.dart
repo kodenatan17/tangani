@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tangani/app/routes/app_pages.dart';
 import 'package:tangani/app/widgets/app_style_text.dart';
@@ -11,25 +14,42 @@ import 'package:tangani/app/widgets/constants.dart';
 import 'package:tangani/app/widgets/dashboard_menu.dart';
 import 'package:tangani/app/widgets/spacer_style.dart';
 
+import '../../../controllers/auth_controller.dart';
 import '../../../models/card_model.dart';
 
 import '../../../widgets/dashboard_presence.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBgPrimaryColor,
-        title: Image.asset(
-          'assets/images/logo.png',
-          fit: BoxFit.cover,
-          width: 150,
+        backgroundColor: kDefaultColor,
+        centerTitle: false,
+        elevation: 0,
+        title: RichText(
+          text: TextSpan(
+            text: "Hai, ",
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+            children: [
+              TextSpan(
+                  text: "${authC.usersModel.value.displayName}",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold))
+            ],
+          ),
         ),
         actions: <Widget>[
           IconButton(
-            color: kDarkColor,
+            color: Colors.white,
             hoverColor: kDefaultColor,
             icon: const Icon(CupertinoIcons.headphones),
             tooltip: 'Customer Service',
@@ -38,7 +58,7 @@ class DashboardView extends GetView<DashboardController> {
             },
           ),
           IconButton(
-            color: kDarkColor,
+            color: Colors.white,
             hoverColor: kDefaultColor,
             icon: const Icon(CupertinoIcons.qrcode_viewfinder),
             tooltip: 'QR Scanner',
@@ -48,328 +68,423 @@ class DashboardView extends GetView<DashboardController> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: Stack(
+        children: [
+          ClipPath(
+            clipper: ClipPathClass(),
+            child: Container(
+              height: 200,
+              width: Get.width,
+              color: kDefaultColor,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: kDefaultPadding * 2),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    ClipPath(
+                      clipper: ClipPathInfo(),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding * 0.2,
+                          vertical: kDefaultPadding,
+                        ),
+                        margin: EdgeInsets.symmetric(horizontal: 15),
+                        height: 200,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              kDefaultColor,
+                              Color(0Xffff6200),
+                            ],
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: kDefaultPadding,
+                                    horizontal: kDefaultPadding,
+                                  ),
+                                  height: 100,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "${authC.usersModel.value.statusUser}",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start  ,
+                                        children: [
+                                          Text(
+                                            "${authC.usersModel.value.phone}",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            "${authC.usersModel.value.email}",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/logo-transparent.png",
+                                      fit: BoxFit.cover,
+                                      width: 100,
+                                      height: 50,
+                                      color: Colors.white,
+                                    ),
+                                    Lottie.asset(
+                                      "assets/lottie/dashboard.json",
+                                      fit: BoxFit.cover,
+                                      width: 170,
+                                      height: 70,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: kDefaultPadding,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding * 1.5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          statusCard(
+                            title: "Laporan",
+                            data: "0",
+                            subdata: " laporan",
+                          ),
+                          statusCard(
+                            title: "Inbox",
+                            data: "0",
+                            subdata: " pesan",
+                          ),
+                          statusCard(
+                            title: "Keluhan",
+                            data: "0",
+                            subdata: " keluhan",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: kDefaultPadding,
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 5,
+                  color: Colors.grey.shade200,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: ListView(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kDefaultPadding),
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Berita Terbaru di Tangani",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Lihat Semua",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: kDefaultColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Laporan RT/RW Terbaru",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Lihat Semua",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: kDefaultColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                    LaporanSection(
+                                      laporanImage:
+                                          "assets/images/tangaemergency-min.png",
+                                      laporanStatus: "Menunggu Konfirmasi",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: kDefaultPadding,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class LaporanSection extends StatelessWidget {
+  const LaporanSection({
+    Key? key,
+    required this.laporanImage,
+    required this.laporanStatus,
+  }) : super(key: key);
+
+  final String laporanImage;
+  final String laporanStatus;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 3,
+      child: Container(
+        height: 150,
+        width: Get.width * 0.7,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(laporanImage),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          color: Colors.black.withOpacity(0.3),
+          width: Get.width * 0.7,
+          child: Chip(
+            padding: EdgeInsets.all(2),
+            backgroundColor: Colors.redAccent,
+            label: Text(
+              laporanStatus,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class statusCard extends StatelessWidget {
+  const statusCard({
+    Key? key,
+    required this.title,
+    required this.data,
+    required this.subdata,
+  }) : super(key: key);
+
+  final String title;
+  final String data;
+  final String subdata;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Container(
+        padding: const EdgeInsets.all(kDefaultPadding / 2),
+        width: Get.width * 0.25,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 5,
-              padding: const EdgeInsets.only(
-                top: kDefaultPadding / 2,
-                bottom: kDefaultPadding,
-              ),
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: cardData.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return CardCarousel(card: cardData[index]);
-                },
-                separatorBuilder: (context, index) {
-                  return SizedBox(width: kDefaultPadding * 2);
-                },
-              ),
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height / 4,
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPadding * 1.8,
-              ),
-              child: OrientationBuilder(
-                builder: (BuildContext context, Orientation orientation) {
-                  return GridView.count(
-                    physics: NeverScrollableScrollPhysics(),
-                    crossAxisCount: orientation == Orientation.portrait ? 4 : 4,
-                    crossAxisSpacing: kDefaultPadding / 10,
-                    mainAxisSpacing: kDefaultPadding / 10,
-                    children: <Widget>[
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAWARTA),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/news.png',
-                            menuTitle: 'TangaWarta',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/response.png',
-                            menuTitle: 'TangaResponse',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAPANGAN),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/wheat.png',
-                            menuTitle: 'TangaPangan',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAAMBULANCE),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/ambulance.png',
-                            menuTitle: 'TangaAmbulance',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGASIAGA),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/emergency.png',
-                            menuTitle: 'TangaSiaga',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAWARTA),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/map.png',
-                            menuTitle: 'TangaPeta',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAWARTA),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/phonevid.png',
-                            menuTitle: 'Laporan/Video',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => Get.toNamed(Routes.TANGAWARTA),
-                          child: DashboardMenu(
-                            menuImage: 'assets/icons/ekstra.png',
-                            menuTitle: 'Lainnya',
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height / 10,
-              width: MediaQuery.of(context).size.width / 1.1,
-              margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kDefaultPadding),
-                color: kDarkColor,
-              ),
-              child: DashboardPresence(),
-            ),
-            SpacerStyle(),
-            Container(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(
-                vertical: kDefaultPadding,
-                horizontal: kDefaultPadding,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Tangerang Tanggap Covid-19",
-                    style: AppStyleText.CARDTITLE_TEXT,
-                  ),
-                  SizedBox(
-                    height: kDefaultPadding / 2,
-                  ),
-                  Text(
-                    "Tetap aman, sehat, dan produktif selama masa pandemi Covid-19",
-                    style: AppStyleText.CARDSUBTITLE_TEXT,
-                  ),
-                  SizedBox(
-                    height: kDefaultPadding * 1.5,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    width: MediaQuery.of(context).size.width,
-                    child: GridView.count(
-                      physics: NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      crossAxisSpacing: kDefaultPadding,
-                      mainAxisSpacing: kDefaultPadding * 2,
-                      children: [
-                        Container(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tanganews-min.png',
-                              titleCard: 'TangaWarta',
-                              subtitleCard:
-                                  'Berita terkini di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangaemergency-min.png',
-                              titleCard: 'TangaSiaga',
-                              subtitleCard:
-                                  'Nomor Siaga di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangaresponse-min.png',
-                              titleCard: 'TangaResponse',
-                              subtitleCard:
-                                  'Respon masyarakat di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangamap-min.png',
-                              titleCard: 'TangaPemetaan',
-                              subtitleCard:
-                                  'Pemetaan di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                      ],
+            RichText(
+              text: TextSpan(
+                text: data,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: kDefaultColor,
+                ),
+                children: [
+                  TextSpan(
+                    text: subdata,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: kDarkColor,
                     ),
                   ),
                 ],
               ),
-            ),
-            SpacerStyle(),
-            Container(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(
-                vertical: kDefaultPadding,
-                horizontal: kDefaultPadding,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "TANGA #BikinGampang",
-                    style: AppStyleText.CARDTITLE_TEXT,
-                  ),
-                  SizedBox(
-                    height: kDefaultPadding / 2,
-                  ),
-                  Text(
-                    "Temukan segala kebutuhanmu di Tangerang di TANGA",
-                    style: AppStyleText.CARDSUBTITLE_TEXT,
-                  ),
-                  SizedBox(
-                    height: kDefaultPadding * 1.5,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    width: MediaQuery.of(context).size.width,
-                    child: GridView.count(
-                      physics: NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      crossAxisSpacing: kDefaultPadding,
-                      mainAxisSpacing: kDefaultPadding * 2,
-                      children: [
-                        Container(
-                          child: InkWell(
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tanganews-min.png',
-                              titleCard: 'TangaWarta',
-                              subtitleCard:
-                                  'Berita terkini di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangaemergency-min.png',
-                              titleCard: 'TangaSiaga',
-                              subtitleCard:
-                                  'Nomor Siaga di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangaresponse-min.png',
-                              titleCard: 'TangaResponse',
-                              subtitleCard:
-                                  'Respon masyarakat di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: InkWell(
-                            onTap: () => Get.toNamed(Routes.TANGARESPONSE),
-                            child: CardPage(
-                              imageCard: 'assets/images/tangamap-min.png',
-                              titleCard: 'TangaPemetaan',
-                              subtitleCard:
-                                  'Pemetaan di sekitar Pemkot Tangerang',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SpacerStyle(),
+            )
           ],
         ),
       ),
     );
   }
+}
+
+class ClipPathClass extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 60);
+    path.quadraticBezierTo(
+      size.width / 2,
+      size.height,
+      size.width,
+      size.height - 60,
+    );
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, 0.0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+}
+
+class ClipPathInfo extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height);
+    path.lineTo(size.width - 70, size.height);
+    path.lineTo(size.width, size.height - 70);
+    path.lineTo(size.width, 0.0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

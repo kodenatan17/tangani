@@ -274,5 +274,6 @@ class report_init extends StatelessWidget {
       "camera permission : ${statuses[Permission.camera]}",
     );
     Get.toNamed(Routes.REPORT_MAIN);
+    
   }
 }

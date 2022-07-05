@@ -1,0 +1,2 @@
+com/fintasys/emoji_picker_flutter/BuildConfig.java
+ com.fintasys.emoji_picker_flutter.BuildConfig

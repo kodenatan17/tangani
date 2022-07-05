@@ -71,15 +71,10 @@ class ProfileView extends GetView<ProfileController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Obx(
-                              () => Text(
-                                  "${authC.usersModel.value.displayName!}",
-                                  style: AppStyleText.CARDTEMPTITLE_TEXT),
-                            ),
-                            Obx(
-                              () => Text("${authC.usersModel.value.ktp!}",
-                                  style: AppStyleText.CARDTEMPSUBTITLE_TEXT),
-                            ),
+                            Text("${authC.usersModel.value.displayName!}",
+                                style: AppStyleText.CARDTEMPTITLE_TEXT),
+                            Text("${authC.usersModel.value.ktp!}",
+                                style: AppStyleText.CARDTEMPSUBTITLE_TEXT),
                           ],
                         ),
                       ],
@@ -101,21 +96,19 @@ class ProfileView extends GetView<ProfileController> {
                             // Replace this child with your own
                             elevation: 2.0,
                             shape: CircleBorder(),
-                            child: Obx(
-                              () => ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child:
-                                    authC.usersModel.value.photoURL == "noimage"
-                                        ? Image.asset(
-                                            'assets/avatar/noimage.png',
-                                            height: 90,
-                                          )
-                                        : Image.network(
-                                            authC.usersModel.value.photoURL!,
-                                            height: 90,
-                                            fit: BoxFit.cover,
-                                          ),
-                              ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child:
+                                  authC.usersModel.value.photoURL == "noimage"
+                                      ? Image.asset(
+                                          'assets/avatar/noimage.png',
+                                          height: 90,
+                                        )
+                                      : Image.network(
+                                          authC.usersModel.value.photoURL!,
+                                          height: 90,
+                                          fit: BoxFit.cover,
+                                        ),
                             ),
                           ),
                         ),

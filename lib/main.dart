@@ -23,46 +23,50 @@ class MyApp extends StatelessWidget {
   final authC = Get.put(AuthController(), permanent: true);
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Tangani App",
-      initialRoute: Routes.CHAT,
-      getPages: AppPages.routes,
-      theme: ThemeData(
-        scaffoldBackgroundColor: light,
-        textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
-        pageTransitionsTheme: PageTransitionsTheme(builders: {
-          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-        }),
-      ),
-    );
-
-    // return FutureBuilder(
-    //   future: Future.delayed(kDefaultDuration),
-    //   builder: (context, snapshot) {
-    //     if (snapshot.connectionState == ConnectionState.done) {
-    //       return Obx(
-    //         () => GetMaterialApp(
-    //           title: "Tangani App",
-    //           initialRoute:
-    //               authC.isAuth.isTrue ? AppPages.INITIAL : Routes.LOGIN,
-    //           // initialRoute: AppPages.INITIAL,
-    //           getPages: AppPages.routes,
-    //           theme: ThemeData(
-    //             scaffoldBackgroundColor: light,
-    //             textTheme:
-    //                 GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
-    //             pageTransitionsTheme: PageTransitionsTheme(builders: {
-    //               TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-    //             }),
-    //           ),
-    //         ),
-    //       );
-    //     }
-    //     return FutureBuilder(
-    //       future: authC.firstInitialized(),
-    //       builder: (context, snapshot) => SplashScreen(),
-    //     );
-    //   },
+    // return GetMaterialApp(
+    //   title: "Tangani App",
+    //   initialRoute: Routes.PROFILE,
+    //   getPages: AppPages.routes,
+    //   theme: ThemeData(
+    //     scaffoldBackgroundColor: light,
+    //     textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
+    //     pageTransitionsTheme: PageTransitionsTheme(builders: {
+    //       TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+    //     }),
+    //   ),
     // );
+
+    return FutureBuilder(
+      future: Future.delayed(kDefaultDuration),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Obx(
+            () => GetMaterialApp(
+              title: "Tangani App",
+              initialRoute:
+                  authC.isAuth.isTrue && authC.usersModel.value.statusUser == "admin"
+                      ? Routes.ADMIN
+                      : authC.isAuth.isTrue && authC.usersModel.value.statusUser != null
+                          ? AppPages.INITIAL
+                          : Routes.LOGIN,
+              // initialRoute: AppPages.INITIAL,
+              getPages: AppPages.routes,
+              theme: ThemeData(
+                scaffoldBackgroundColor: light,
+                textTheme:
+                    GoogleFonts.mulishTextTheme(Theme.of(context).textTheme),
+                pageTransitionsTheme: PageTransitionsTheme(builders: {
+                  TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+                }),
+              ),
+            ),
+          );
+        }
+        return FutureBuilder(
+          future: authC.firstInitialized(),
+          builder: (context, snapshot) => SplashScreen(),
+        );
+      },
+    );
   }
 }

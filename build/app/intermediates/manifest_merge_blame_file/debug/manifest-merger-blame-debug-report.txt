@@ -51,114 +51,113 @@
 27    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 27-->/home/kodenatan/tangani/android/app/src/main/AndroidManifest.xml:23:5-81
 27-->/home/kodenatan/tangani/android/app/src/main/AndroidManifest.xml:23:22-79
-28    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-28-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-77
-28-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-74
-29    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-29-->[:camera_android] /home/kodenatan/tangani/build/camera_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-71
-29-->[:camera_android] /home/kodenatan/tangani/build/camera_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-68
-30    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-30-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:24:5-79
-30-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:24:22-76
-31    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-31-->[com.facebook.android:facebook-core:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/e66f5edf879419cce3a0c4ec03dc4435/jetified-facebook-core-13.2.0/AndroidManifest.xml:28:5-79
-31-->[com.facebook.android:facebook-core:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/e66f5edf879419cce3a0c4ec03dc4435/jetified-facebook-core-13.2.0/AndroidManifest.xml:28:22-76
-32    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-32-->[com.android.installreferrer:installreferrer:1.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/dc4a40f3e49befd2bf45e71be8c03010/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
-32-->[com.android.installreferrer:installreferrer:1.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/dc4a40f3e49befd2bf45e71be8c03010/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
-33
-34    <application
-35        android:name="android.app.Application"
-36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-36-->[androidx.core:core:1.8.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/340f73096e343129323054dd621e22bf/core-1.8.0/AndroidManifest.xml:24:18-86
-37        android:debuggable="true"
-38        android:icon="@mipmap/ic_launcher"
-39        android:label="tangani"
-40        android:requestLegacyExternalStorage="true"
-41        android:supportsRtl="true" >
-41-->[com.facebook.android:facebook-login:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/99a222ba3be8e30bd834c60eb424bdc0/jetified-facebook-login-13.2.0/AndroidManifest.xml:28:18-44
-42        <activity
-43            android:name="com.kodenatan.tangani.tangani.MainActivity"
-44            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-45            android:exported="true"
-46            android:hardwareAccelerated="true"
-47            android:launchMode="singleTop"
-48            android:theme="@style/LaunchTheme"
-49            android:windowSoftInputMode="adjustResize" >
-50
-51            <!--
-52                 Specifies an Android theme to apply to this Activity as soon as
-53                 the Android process has started. This theme is visible to the user
-54                 while the Flutter UI initializes. After that, this theme continues
-55                 to determine the Window background behind the Flutter UI.
-56            -->
-57            <meta-data
-58                android:name="io.flutter.embedding.android.NormalTheme"
-59                android:resource="@style/NormalTheme" />
-60
-61            <intent-filter>
-62                <action android:name="android.intent.action.MAIN" />
-63
-64                <category android:name="android.intent.category.LAUNCHER" />
-65            </intent-filter>
-66        </activity>
-67        <!--
-68             Don't delete the meta-data below.
-69             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-70        -->
-71        <meta-data
-72            android:name="flutterEmbedding"
-73            android:value="2" />
-74
-75        <service
-75-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-76            android:name="com.google.firebase.components.ComponentDiscoveryService"
-76-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
-77            android:directBootAware="true"
-77-->[com.google.firebase:firebase-common:20.1.1] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/0f67b2d2737c37bf1274c8f8df4996b1/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
-78            android:exported="false" >
-78-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:66:13-37
-79            <meta-data
-79-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-80                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-80-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
-81                android:value="com.google.firebase.components.ComponentRegistrar" />
-81-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
-82            <meta-data
-82-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-83                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-83-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
-84                android:value="com.google.firebase.components.ComponentRegistrar" />
-84-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
-85            <meta-data
-85-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-86-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
-87                android:value="com.google.firebase.components.ComponentRegistrar" />
-87-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
-88            <meta-data
-88-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:67:13-69:85
-89                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-89-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:68:17-109
-90                android:value="com.google.firebase.components.ComponentRegistrar" />
-90-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:69:17-82
-91            <meta-data
-91-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:20:13-22:85
-92                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-92-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:21:17-111
-93                android:value="com.google.firebase.components.ComponentRegistrar" />
-93-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:22:17-82
-94        </service>
-95        <service
-95-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-14:56
-96            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-96-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-77
-97            android:enabled="true"
-97-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-35
-98            android:exported="false"
-98-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-37
-99            android:foregroundServiceType="location" />
-99-->[:geolocator_android] /home/kodenatan/tangani/build/geolocator_android/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-53
+28    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+28-->[:camera_android] /home/kodenatan/tangani/build/camera_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-71
+28-->[:camera_android] /home/kodenatan/tangani/build/camera_android/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-68
+29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+29-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:24:5-79
+29-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:24:22-76
+30    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+30-->[com.facebook.android:facebook-core:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/e66f5edf879419cce3a0c4ec03dc4435/jetified-facebook-core-13.2.0/AndroidManifest.xml:28:5-79
+30-->[com.facebook.android:facebook-core:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/e66f5edf879419cce3a0c4ec03dc4435/jetified-facebook-core-13.2.0/AndroidManifest.xml:28:22-76
+31    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+31-->[com.android.installreferrer:installreferrer:1.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/dc4a40f3e49befd2bf45e71be8c03010/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
+31-->[com.android.installreferrer:installreferrer:1.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/dc4a40f3e49befd2bf45e71be8c03010/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
+32
+33    <application
+34        android:name="android.app.Application"
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.8.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/340f73096e343129323054dd621e22bf/core-1.8.0/AndroidManifest.xml:24:18-86
+36        android:debuggable="true"
+37        android:icon="@mipmap/ic_launcher"
+38        android:label="tangani"
+39        android:requestLegacyExternalStorage="true"
+40        android:supportsRtl="true" >
+40-->[com.facebook.android:facebook-login:13.2.0] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/99a222ba3be8e30bd834c60eb424bdc0/jetified-facebook-login-13.2.0/AndroidManifest.xml:28:18-44
+41        <activity
+42            android:name="com.kodenatan.tangani.tangani.MainActivity"
+43            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+44            android:exported="true"
+45            android:hardwareAccelerated="true"
+46            android:launchMode="singleTop"
+47            android:theme="@style/LaunchTheme"
+48            android:windowSoftInputMode="adjustResize" >
+49
+50            <!--
+51                 Specifies an Android theme to apply to this Activity as soon as
+52                 the Android process has started. This theme is visible to the user
+53                 while the Flutter UI initializes. After that, this theme continues
+54                 to determine the Window background behind the Flutter UI.
+55            -->
+56            <meta-data
+57                android:name="io.flutter.embedding.android.NormalTheme"
+58                android:resource="@style/NormalTheme" />
+59
+60            <intent-filter>
+61                <action android:name="android.intent.action.MAIN" />
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+64            </intent-filter>
+65        </activity>
+66        <!--
+67             Don't delete the meta-data below.
+68             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+69        -->
+70        <meta-data
+71            android:name="flutterEmbedding"
+72            android:value="2" />
+73
+74        <service
+74-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+75            android:name="com.google.firebase.components.ComponentDiscoveryService"
+75-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
+76            android:directBootAware="true"
+76-->[com.google.firebase:firebase-common:20.1.1] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/0f67b2d2737c37bf1274c8f8df4996b1/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
+77            android:exported="false" >
+77-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:66:13-37
+78            <meta-data
+78-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+79                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+79-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[:cloud_firestore] /home/kodenatan/tangani/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+81            <meta-data
+81-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+82                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+82-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[:firebase_auth] /home/kodenatan/tangani/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+84            <meta-data
+84-->[:firebase_storage] /home/kodenatan/tangani/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+85                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+85-->[:firebase_storage] /home/kodenatan/tangani/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-126
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[:firebase_storage] /home/kodenatan/tangani/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+87            <meta-data
+87-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+88                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+88-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[:firebase_core] /home/kodenatan/tangani/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:67:13-69:85
+91                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+91-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:68:17-109
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-auth:21.0.5] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:69:17-82
+93            <meta-data
+93-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:20:13-22:85
+94                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+94-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:21:17-111
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.firebase:firebase-firestore:24.1.2] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/f5bbed170b360fd19b200a85558d3766/jetified-firebase-firestore-24.1.2/AndroidManifest.xml:22:17-82
+96            <meta-data
+96-->[com.google.firebase:firebase-storage:20.0.1] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a732609d39140ed999dd3f02f1a8340e/jetified-firebase-storage-20.0.1/AndroidManifest.xml:33:13-35:85
+97                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+97-->[com.google.firebase:firebase-storage:20.0.1] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a732609d39140ed999dd3f02f1a8340e/jetified-firebase-storage-20.0.1/AndroidManifest.xml:34:17-107
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.firebase:firebase-storage:20.0.1] /home/kodenatan/.gradle/caches/transforms-2/files-2.1/a732609d39140ed999dd3f02f1a8340e/jetified-firebase-storage-20.0.1/AndroidManifest.xml:35:17-82
+99        </service>
 100
 101        <provider
 101-->[:image_picker_android] /home/kodenatan/tangani/build/image_picker_android/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20

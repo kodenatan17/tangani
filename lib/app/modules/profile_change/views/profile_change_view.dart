@@ -14,11 +14,6 @@ import '../controllers/profile_change_controller.dart';
 class ProfileChangeView extends GetView<ProfileChangeController> {
   final authC = Get.find<AuthController>();
 
-  var textchangeDisplayName = TextEditingController();
-  var textchangeUserName = TextEditingController();
-  var textchangePhone = TextEditingController();
-  var textchangePassword = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,38 +47,30 @@ class ProfileChangeView extends GetView<ProfileChangeController> {
                       alignment: FractionalOffset.topCenter,
                       child: Stack(
                         children: [
-                          InkWell(
-                            onTap: () {
-                              showModalBottomSheet<void>(
-                                context: context,
-                                builder: (context) => bottomSheet(context),
-                              );
-                            },
-                            child: new AvatarGlow(
-                              glowColor: kDefaultColor,
-                              endRadius: 150.0,
-                              duration: Duration(milliseconds: 1000),
-                              repeat: true,
-                              showTwoGlows: true,
-                              child: Material(
-                                // Replace this child with your own
-                                elevation: 2.0,
-                                shape: CircleBorder(),
-                                child: Obx(
-                                  () => ClipRRect(
-                                    borderRadius: BorderRadius.circular(100),
-                                    child: authC.usersModel.value.photoURL ==
-                                            "noimage"
-                                        ? Image.asset(
-                                            'assets/avatar/noimage.png',
-                                            height: 110,
-                                          )
-                                        : Image.network(
-                                            authC.usersModel.value.photoURL!,
-                                            height: 110,
-                                            fit: BoxFit.cover,
-                                          ),
-                                  ),
+                          new AvatarGlow(
+                            glowColor: kDefaultColor,
+                            endRadius: 150.0,
+                            duration: Duration(milliseconds: 1000),
+                            repeat: true,
+                            showTwoGlows: true,
+                            child: Material(
+                              // Replace this child with your own
+                              elevation: 2.0,
+                              shape: CircleBorder(),
+                              child: Obx(
+                                () => ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: authC.usersModel.value.photoURL ==
+                                          "noimage"
+                                      ? Image.asset(
+                                          'assets/avatar/noimage.png',
+                                          height: 110,
+                                        )
+                                      : Image.network(
+                                          authC.usersModel.value.photoURL!,
+                                          height: 110,
+                                          fit: BoxFit.cover,
+                                        ),
                                 ),
                               ),
                             ),
@@ -107,29 +94,23 @@ class ProfileChangeView extends GetView<ProfileChangeController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       TextFormField(
-                        enabled: false,
+                        enabled: true,
+                        textInputAction: TextInputAction.next,
                         controller: controller.displayNameC,
                         decoration: InputDecoration(labelText: "Nama Lengkap"),
                       ),
                       TextFormField(
-                        enabled: false,
-                        controller: controller.usernameC,
-                        decoration: InputDecoration(labelText: "Username"),
-                      ),
-                      TextFormField(
-                        enabled: false,
+                        textInputAction: TextInputAction.next,
+                        readOnly: true,
                         controller: controller.emailC,
                         decoration: InputDecoration(labelText: "Email"),
                       ),
                       TextFormField(
-                        enabled: false,
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.done,
+                        enabled: true,
                         controller: controller.phoneC,
                         decoration: InputDecoration(labelText: "No. Telp"),
-                      ),
-                      TextFormField(
-                        enabled: false,
-                        controller: controller.passwordC,
-                        decoration: InputDecoration(labelText: "Password"),
                       ),
                       TextFormField(
                         enabled: false,
@@ -137,44 +118,27 @@ class ProfileChangeView extends GetView<ProfileChangeController> {
                         decoration: InputDecoration(
                             labelText: "Nomor Induk Kependudukan (NIK)"),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(kDefaultColor),
-                            ),
-                            icon: Icon(
-                              // <-- Icon
-                              Icons.restart_alt_rounded,
-                              size: 18.0,
-                              color: Colors.white,
-                            ),
-                            label: Text(
-                              'Reset',
-                              style: TextStyle(color: Colors.white),
-                            ),
+                      Container(
+                        width: Get.width,
+                        child: ElevatedButton.icon(
+                          onPressed: () => authC.changeProfile(
+                              controller.displayNameC.text,
+                              controller.phoneC.text),
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(kDefaultColor),
                           ),
-                          ElevatedButton.icon(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(kDefaultColor),
-                            ),
-                            icon: Icon(
-                              // <-- Icon
-                              Icons.lock_person,
-                              size: 18.0,
-                              color: Colors.white,
-                            ),
-                            label: Text(
-                              'Submit',
-                              style: TextStyle(color: Colors.white),
-                            ),
+                          icon: Icon(
+                            // <-- Icon
+                            Icons.lock_person,
+                            size: 18.0,
+                            color: Colors.white,
                           ),
-                        ],
+                          label: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
                     ],
                   ),

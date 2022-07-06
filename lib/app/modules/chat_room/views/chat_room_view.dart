@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:tangani/app/controllers/auth_controller.dart';
 import 'package:tangani/app/widgets/constants.dart';
 
@@ -108,7 +109,12 @@ class ChatRoomView extends GetView<ChatRoomController> {
                       ),
                     ),
                     Text(
-                      receiverData["lastSignInTime"],
+                      "Terakhir dilihat " +
+                          DateFormat.jm().format(
+                            DateTime.parse(
+                              receiverData["lastSignInTime"],
+                            ),
+                          ),
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.black87,
@@ -164,17 +170,65 @@ class ChatRoomView extends GetView<ChatRoomController> {
                             controller.scrollC.position.maxScrollExtent),
                       );
                       return ListView.builder(
-                        controller: controller.scrollC,
-                        itemCount: chatsData.length,
-                        itemBuilder: (context, index) => ItemChat(
-                          isSender: chatsData[index]["chatSender"] ==
-                                  authC.usersModel.value.email!
-                              ? true
-                              : false,
-                          chats: "${chatsData[index]["chats"]}",
-                          chatTime: chatsData[index]["chatTime"],
-                        ),
-                      );
+                          controller: controller.scrollC,
+                          itemCount: chatsData.length,
+                          itemBuilder: (context, index) {
+                            if (index == 0) {
+                              return Column(
+                                children: [
+                                  SizedBox(
+                                    height: kDefaultPadding,
+                                  ),
+                                  Text(
+                                    "${chatsData[index]["groupTime"]}",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  ItemChat(
+                                    isSender: chatsData[index]["chatSender"] ==
+                                            authC.usersModel.value.email!
+                                        ? true
+                                        : false,
+                                    chats: "${chatsData[index]["chats"]}",
+                                    chatTime: chatsData[index]["chatTime"],
+                                  ),
+                                ],
+                              );
+                            } else {
+                              if (chatsData[index]["groupTime"] ==
+                                  chatsData[index]["groupTime"]) {
+                                return ItemChat(
+                                  chats: "${chatsData[index]["chats"]}",
+                                  isSender: chatsData[index]["chatSender"] ==
+                                          authC.usersModel.value.email!
+                                      ? true
+                                      : false,
+                                  chatTime: "${chatsData[index]["chatTime"]}",
+                                );
+                              } else {
+                                return Column(
+                                  children: [
+                                    Text(
+                                      "${chatsData[index]["groupTime"]}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    ItemChat(
+                                      isSender: chatsData[index]
+                                                  ["chatSender"] ==
+                                              authC.usersModel.value.email!
+                                          ? true
+                                          : false,
+                                      chats: "${chatsData[index]["chats"]}",
+                                      chatTime: chatsData[index]["chatTime"],
+                                    ),
+                                  ],
+                                );
+                              }
+                            }
+                          });
                     }
                     return Center(
                       child: CircularProgressIndicator(),
@@ -350,7 +404,7 @@ class ItemChat extends StatelessWidget {
           SizedBox(
             width: 5,
           ),
-          Text(chatTime),
+          Text(DateFormat.jm().format(DateTime.parse(chatTime))),
         ],
       ),
       alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,

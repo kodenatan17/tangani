@@ -1,0 +1,36 @@
+{
+    "uid": "",
+    "displayName": "",
+    "keyName" : "",
+    "email": "",
+    "photoURL": "",
+    "absenceStatus": "",
+    "creationTime": "",
+    "lastSignInTime": "",
+    "absenceTime": "",
+    "ktp": "",
+    "password": "",
+    "phone": "",
+    "username": "",
+    "statusUser": "",
+    "chats": [
+        {
+            "connections": "",
+            "chatId": "",
+            "lastTime": "",
+            "totalUnread": 0
+        },
+        {
+            "connections": "",
+            "chatId": "",
+            "lastTime": "",
+            "totalUnread": 1
+        }
+    ],
+    "laporans": [
+        {
+            "laporanId": "",
+            "lastTime": ""
+        }
+    ]
+}

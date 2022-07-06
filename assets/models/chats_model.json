@@ -1,0 +1,22 @@
+{
+    "connections": [
+        "ferrynatan.wibisono@gmail.com",
+        "kodenatan17@gmail.com"
+    ],
+    "chats" : [
+        {
+            "chatSender":"",
+            "chatReceiver":"",
+            "chats":"",
+            "chatTime":"",
+            "isRead":true
+        },
+        {
+            "chatSender":"",
+            "chatReceiver":"",
+            "chats":"",
+            "chatTime":"",
+            "isRead":true
+        }
+    ]
+}

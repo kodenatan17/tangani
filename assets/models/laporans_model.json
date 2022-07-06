@@ -1,0 +1,19 @@
+{
+    "totalLaporans": "",
+    "laporan": [
+        {
+            "laporanSender": "",
+            "laporanValue": "",
+            "laporanTime": "",
+            "laporanStatus": "",
+            "isRead": true
+        },
+        {
+            "laporanSender": "",
+            "laporanValue": "",
+            "laporanTime": "",
+            "laporanStatus": "",
+            "isRead": true
+        }
+    ]
+}

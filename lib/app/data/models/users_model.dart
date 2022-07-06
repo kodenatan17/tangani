@@ -20,9 +20,7 @@ class UsersModel {
         this.lastSignInTime,
         this.absenceTime,
         this.ktp,
-        this.password,
         this.phone,
-        this.username,
         this.statusUser,
         this.chats,
         this.laporans,
@@ -38,9 +36,7 @@ class UsersModel {
     String? lastSignInTime;
     String? absenceTime;
     String? ktp;
-    String? password;
     String? phone;
-    String? username;
     String? statusUser;
     List<ChatsUser>? chats;
     List<Laporan>? laporans;
@@ -56,11 +52,9 @@ class UsersModel {
         lastSignInTime: json["lastSignInTime"],
         absenceTime: json["absenceTime"],
         ktp: json["ktp"],
-        password: json["password"],
         phone: json["phone"],
-        username: json["username"],
         statusUser: json["statusUser"],
-        chats: List<ChatsUser>.from(json["chats"].map((x) => ChatsUser.fromJson(x))),
+        // chats: List<ChatsUser>.from(json["chats"].map((x) => ChatsUser.fromJson(x))),
         laporans: List<Laporan>.from(json["laporans"].map((x) => Laporan.fromJson(x))),
     );
 
@@ -75,11 +69,9 @@ class UsersModel {
         "lastSignInTime": lastSignInTime,
         "absenceTime": absenceTime,
         "ktp": ktp,
-        "password": password,
         "phone": phone,
-        "username": username,
         "statusUser": statusUser,
-        "chats": List<dynamic>.from(chats!.map((x) => x.toJson())),
+        // "chats": List<dynamic>.from(chats!.map((x) => x.toJson())),
         "laporans": List<dynamic>.from(laporans!.map((x) => x.toJson())),
     };
 }
